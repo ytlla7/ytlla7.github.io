@@ -1,0 +1,55 @@
+media:
+  input: assets/img
+  output: /assets/img
+
+content:
+  - name: posts
+    label: 글
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{hour}{minute}{second}.md"
+    view:
+      fields: [title, category, series]
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: category
+        label: 분류
+        type: select
+        required: true
+        options:
+          values: [프로필, 로그]
+      - name: series
+        label: 묶음 이름
+        type: string
+        description: 이어지는 로그일 때만 입력. 띄어쓰기까지 똑같이 쓴 글끼리 회차로 묶여요. 아니면 비워 두세요.
+      - name: description
+        label: 한 줄 요약 (목록에 보임)
+        type: string
+      - name: tags
+        label: 태그
+        type: string
+        list: true
+      - name: cover
+        label: 대표 이미지
+        type: image
+      - name: body
+        label: 본문
+        type: rich-text
+
+  - name: about
+    label: 소개 페이지
+    type: file
+    path: about.md
+    fields:
+      - name: title
+        label: 제목
+        type: string
+      - name: permalink
+        type: string
+        hidden: true
+      - name: body
+        label: 본문
+        type: rich-text
