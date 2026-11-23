@@ -1,0 +1,38 @@
+# ── 사이트 기본 정보 (여기만 고치면 전체에 반영돼요) ──
+title: "commu"
+description: ""                     # 홈 상단 한 줄 소개 (비워두면 안 보임)
+url: "https://ytlla7.github.io"
+baseurl: ""
+lang: ko
+
+# 상단 메뉴
+nav:
+  - title: 글
+    url: /
+  - title: 분류
+    url: /archive/
+  - title: 소개
+    url: /about/
+
+# 분류 (분류 페이지에 이 순서로 표시)
+categories_order: [프로필, 로그]
+
+permalink: /:year/:month/:day/:title/
+timezone: Asia/Seoul
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: post }
+  - scope: { path: "" }
+    values: { layout: page }
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude: [README.md, Gemfile, Gemfile.lock, _templates, .pages.yml]

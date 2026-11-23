@@ -1,0 +1,48 @@
+---
+layout: default
+---
+{% assign _v = page.series | strip %}{% if _v != "" %}
+  {% assign eps = site.posts | where: "series", page.series | sort: "date" %}
+{% endif %}
+<article class="post">
+  <header class="post-head">
+    <h1>{{ page.title }}</h1>
+    <div class="meta">
+      {% assign _v = page.category | strip %}{% if _v != "" %}<span class="cat">{{ page.category }}</span>{% endif %}
+      {% assign _v = page.series | strip %}{% if _v != "" %}<span class="series">{{ page.series }}</span>{% endif %}
+      <time>{{ page.date | date: "%Y.%m.%d" }}</time>
+    </div>
+    {% assign _v = page.description | strip %}{% if _v != "" %}<p class="desc">{{ page.description }}</p>{% endif %}
+  </header>
+
+  {% assign _v = page.cover | strip %}{% if _v != "" %}<img class="cover" src="{{ page.cover | relative_url }}" alt="">{% endif %}
+
+   <div class="post-body">{{ content | replace: '<br />', '</p><p class="ln">' }}</div>
+
+  {% if page.tags and page.tags.size > 0 %}
+  <div class="tags">{% for t in page.tags %}<span>#{{ t }}</span>{% endfor %}</div>
+  {% endif %}
+
+  {% if eps and eps.size > 1 %}
+  <!-- 묶음: 같은 묶음 이름의 회차 목록 / 이전·다음 화 -->
+  {% for e in eps %}{% if e.url == page.url %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+  {% assign pi = i | minus: 1 %}{% assign ni = i | plus: 1 %}
+  <section class="series-box">
+    <h3>{{ page.series }} <small>총 {{ eps.size }}화</small></h3>
+    <ol>
+      {% for e in eps %}
+      <li {% if e.url == page.url %}class="now"{% endif %}><a href="{{ e.url | relative_url }}">{{ e.title }}</a></li>
+      {% endfor %}
+    </ol>
+  </section>
+  <nav class="post-nav">
+    {% if i > 0 %}<a href="{{ eps[pi].url | relative_url }}"><small>이전 화</small>{{ eps[pi].title }}</a>{% else %}<span></span>{% endif %}
+    {% if ni < eps.size %}<a class="next" href="{{ eps[ni].url | relative_url }}"><small>다음 화</small>{{ eps[ni].title }}</a>{% endif %}
+  </nav>
+  {% else %}
+  <nav class="post-nav">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><small>이전 글</small>{{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><small>다음 글</small>{{ page.next.title }}</a>{% endif %}
+  </nav>
+  {% endif %}
+</article>

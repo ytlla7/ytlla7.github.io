@@ -1,0 +1,15 @@
+---
+title: 분류
+permalink: /archive/
+---
+{% for cat in site.categories_order %}
+  {% assign list = site.posts | where: "category", cat %}
+  <h2 class="arch-cat">{{ cat }} <small>{{ list.size }}</small></h2>
+
+  <ul class="arch-list">
+    {% for post in list %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><time>{{ post.date | date: "%Y.%m.%d" }}</time></li>
+    {% else %}<li class="empty">아직 글이 없어요.</li>
+    {% endfor %}
+  </ul>
+{% endfor %}

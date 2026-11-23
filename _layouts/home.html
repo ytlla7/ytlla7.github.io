@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{% assign _d = site.description | strip %}{% if _d != "" %}
+<section class="intro"><p>{{ site.description }}</p></section>
+{% endif %}
+
+<ul class="post-list">
+  {% for post in site.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">
+      <div class="meta">
+        {% assign _v = post.category | strip %}{% if _v != "" %}<span class="cat">{{ post.category }}</span>{% endif %}
+        {% assign _v = post.series | strip %}{% if _v != "" %}<span class="series">{{ post.series }}</span>{% endif %}
+        <time>{{ post.date | date: "%Y.%m.%d" }}</time>
+      </div>
+      <h2>{{ post.title }}</h2>
+      {% assign _v = post.description | strip %}{% if _v != "" %}<p class="desc">{{ post.description }}</p>{% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
