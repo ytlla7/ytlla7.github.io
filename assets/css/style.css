@@ -127,3 +127,7 @@ main{flex:1;padding:44px 0 56px}
   main{padding:34px 0 48px}
   .post-head h1{font-size:20px}
 }
+
+/* 글자 색 */
+.c-olive{color:#636b2f}   /* 올리브 */
+.c-pale{color:#bec39c}    /* 연한 올리브 */
