@@ -1,4 +1,4 @@
-<img width="868" height="318" alt="image" src="https://github.com/user-attachments/assets/8162a8a7-72a4-464f-99ad-dbae18754045" />---
+---
 title: 필 블랙혼/남성/B
 category: 프로필
 ---
