@@ -85,7 +85,7 @@ category: 프로필
 
 
 
-### <span style="c-olive>**쿠겔블리츠 / Kugelblitz**</span>
+### <span style="c-olive">**쿠겔블리츠 / Kugelblitz**</span>
 
 SI 표준 단위 기준 1칸델라 이상의 빛이 존재할 시 빛을 초고밀도로 압축하여 초응축·초질량성 미니 <span style="c-olive">**블랙홀을 생성**</span>한다.
 현재 최대 지름이 **새끼 손톱 반 정도 크기**인 블랙홀을 생성할 수 있다.
